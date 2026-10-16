@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warung Lapar Lagi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="ribbon"><h1>WARUNG <span>LAPAR LAGI</span></h1></div>
+  <p class="tag">🍜 Makan enak, harga bersahabat — dijamin lapar lagi! 🍛</p>
+  <div class="cta">
+    <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">📍 Petunjuk Arah</a>
+    <a class="btn alt" id="waBtn" href="#" target="_blank" rel="noopener">💬 Pesan via WhatsApp</a>
+  </div>
+</header>
+
+<main>
+  <div class="notice">⚠️ Sebelum memesan, tanyakan dulu apakah warung sedang <u>buka</u> dan apakah menu yang kamu mau <u>masih tersedia</u>.<small>Stok menu bisa habis sewaktu-waktu, terutama menjelang tutup. Menu bertanda "Tanya dulu" sering kosong, jadi pastikan lewat WhatsApp ya.</small></div>
+  <section>
+    <h2>🍽️ Makanan</h2>
+    <div class="grid" id="makanan"></div>
+  </section>
+  <section>
+    <h2>🥤 Minuman</h2>
+    <div class="grid">
+      <div><h3>☕ Panas</h3><div id="panas"></div></div>
+      <div><h3>🧊 Dingin</h3><div id="dingin"></div></div>
+    </div>
+  </section>
+  <section class="info">
+    <h2>📍 Lokasi &amp; Kontak</h2>
+    <p><b>Alamat:</b> <span id="alamat"></span></p>
+    <p><b>Jam buka:</b> <span id="jam"></span></p>
+    <p><b>WhatsApp:</b> <span id="wa"></span></p>
+  </section>
+</main>
+<div class="modal" id="modal"><div class="box"><h3>⚠️ Tunggu dulu!</h3><p>Pastikan kamu tanya dulu ke warung:</p><p>✅ Apakah warung sedang <b>buka</b>?<br>✅ Apakah menu yang kamu mau <b>masih ada</b>?</p><div class="row"><a id="goWa" href="#" target="_blank" rel="noopener">Lanjut ke WhatsApp</a><button id="closeM">Batal</button></div></div></div>
+<footer>© Warung Lapar Lagi — Selamat menikmati! 😋</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
