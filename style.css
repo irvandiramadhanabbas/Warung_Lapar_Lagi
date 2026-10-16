@@ -30,3 +30,11 @@ h3{margin:14px 0 6px;color:var(--green-d);border-bottom:3px dashed var(--green);
 .box button,.box a{font:inherit;font-weight:700;padding:11px 18px;border-radius:999px;border:2px solid var(--green-d);cursor:pointer;text-decoration:none;background:var(--green);color:#fff}
 .box button{background:transparent;color:var(--text)}
 footer{text-align:center;padding:20px;background:var(--red);color:#fff;font-weight:700}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:240px;object-fit:cover;border-radius:14px;border:3px solid var(--green);display:block}
+.gallery figcaption{text-align:center;font-size:.9rem;margin-top:6px;opacity:.8}
+.status{display:inline-block;margin-top:14px;padding:8px 18px;border-radius:999px;font-weight:700;border:3px solid #fff;background:#fff;color:#1d2b18;box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.status:empty{display:none}
+.status.buka{background:#d9f7d0;color:#14590a}
+.status.tutup{background:#ffd9d9;color:#8a0b10}

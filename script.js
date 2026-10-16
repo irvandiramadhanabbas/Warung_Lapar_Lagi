@@ -2,6 +2,8 @@
 const INFO = {
   alamat: "Jl. Kesuma - Sebelah Gg. Amin",
   jam: "Setiap hari, 17.30 – 02.00",
+  buka: "17:30",   // jam buka (WIB)
+  tutup: "02:00",  // jam tutup (WIB), boleh lewat tengah malam
   wa: "6285375466961",           // format 62xxxxxxxxxx
   mapsUrl: "https://maps.app.goo.gl/Af52yc2byeQeY3GR9" // ganti dengan link Google Maps warung
 };
@@ -27,3 +29,22 @@ document.getElementById("goWa").href=waLink;
 document.getElementById("goWa").addEventListener("click",()=>modal.classList.remove("show"));
 document.getElementById("closeM").addEventListener("click",()=>modal.classList.remove("show"));
 modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+
+// ===== Status Buka / Tutup otomatis (zona waktu WIB) =====
+function menitSekarangWIB(){
+  const p=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Jakarta",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+  return +p.find(x=>x.type==="hour").value%24*60 + +p.find(x=>x.type==="minute").value;
+}
+function ke(m){return m.split(":").map(Number).reduce((h,mm)=>h*60+mm)}
+function jam(m){return m.replace(":",".")}
+function updateStatus(){
+  const el=document.getElementById("status");
+  const now=menitSekarangWIB(),b=ke(INFO.buka),t=ke(INFO.tutup);
+  const buka=b<=t ? (now>=b&&now<t) : (now>=b||now<t);
+  el.className="status "+(buka?"buka":"tutup");
+  el.textContent=buka
+    ? "🟢 Buka sekarang · sampai jam "+jam(INFO.tutup)
+    : "🔴 Tutup · buka lagi jam "+jam(INFO.buka);
+}
+updateStatus();
+setInterval(updateStatus,60000);
